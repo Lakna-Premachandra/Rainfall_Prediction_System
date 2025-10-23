@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainfall Prediction System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Rainfall Prediction System</h1>
+            <p>Advanced meteorological analysis for accurate rainfall forecasting</p>
+        </div>
+
+        <div class="form-section">
+            <h2>Weather Data Input</h2>
+
+            <form id="predictionForm" class="prediction-form">
+                <div class="form-grid">
+                    <div class="input-group">
+                        <label for="day">Day of Year</label>
+                        <input type="number" id="day" name="day">
+                        <div class="error-message" id="day-error"></div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="pressure">Atmospheric Pressure (hPa)</label>
+                        <input type="number" id="pressure" name="pressure" step="0.01">
+                        <div class="error-message" id="pressure-error"></div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="maxtemp">Maximum Temperature (°C)</label>
+                        <input type="number" id="maxtemp" name="maxtemp" step="0.1">
+                        <div class="error-message" id="maxtemp-error"></div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="temparature">Average Temperature (°C)</label>
+                        <input type="number" id="temparature" name="temparature" step="0.1">
+                        <div class="error-message" id="temparature-error"></div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="mintemp">Minimum Temperature (°C)</label>
+                        <input type="number" id="mintemp" name="mintemp" step="0.1">
+                        <div class="error-message" id="mintemp-error"></div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="dewpoint">Dew Point (°C)</label>
+                        <input type="number" id="dewpoint" name="dewpoint" step="0.1">
+                        <div class="error-message" id="dewpoint-error"></div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="humidity">Relative Humidity (%)</label>
+                        <input type="number" id="humidity" name="humidity" step="0.1">
+                        <div class="error-message" id="humidity-error"></div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="cloud">Cloud Coverage (%)</label>
+                        <input type="number" id="cloud" name="cloud" step="0.1">
+                        <div class="error-message" id="cloud-error"></div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="sunshine">Sunshine Duration (hours)</label>
+                        <input type="number" id="sunshine" name="sunshine" step="0.1">
+                        <div class="error-message" id="sunshine-error"></div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="winddirection">Wind Direction (degrees)</label>
+                        <input type="number" id="winddirection" name="winddirection" step="0.1">
+                        <div class="error-message" id="winddirection-error"></div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="windspeed">Wind Speed (km/h)</label>
+                        <input type="number" id="windspeed" name="windspeed" step="0.1">
+                        <div class="error-message" id="windspeed-error"></div>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" class="btn btn-primary" id="predictBtn">
+                        <span class="btn-text">Predict Rainfall</span>
+                        <div class="loading-spinner" id="loadingSpinner"></div>
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="clearData()">Clear Data</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="result-section hidden" id="resultSection">
+            <h3>Prediction Results</h3>
+            <div class="prediction-card">
+                <div class="prediction-text" id="predictionText"></div>
+                <div class="prediction-subtitle" id="predictionSubtitle"></div>
+            </div>
+            <div class="confidence-section">
+                <div class="confidence-label">Prediction Confidence</div>
+                <div class="confidence-bar">
+                    <div class="confidence-fill" id="confidenceFill"></div>
+                </div>
+                <div class="confidence-value" id="confidenceValue"></div>
+            </div>
+        </div>
+
+        <div class="error-section hidden" id="errorSection">
+            <h3>Error</h3>
+            <div class="error-content">
+                <p id="errorMessage"></p>
+                <button onclick="hideError()" class="btn-error">Try Again</button>
+            </div>
+        </div>
+    </div>
+
+   <script src="script.js"></script>
+</body>
+</html>
